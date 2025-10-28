@@ -1,0 +1,96 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0" version="28.2.8">
+  <diagram name="Page-1" id="wkbGFWjEWQfsGpTjGf0W">
+    <mxGraphModel dx="1548" dy="565" grid="1" gridSize="12" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PhTHbGMLeDzIONKb90QM-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-1" target="PhTHbGMLeDzIONKb90QM-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;fontStyle=1;spacing=5;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-1" target="PhTHbGMLeDzIONKb90QM-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-1" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;ArduCam&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-2" target="PhTHbGMLeDzIONKb90QM-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-2" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Raspberry pi 5&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="264" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-9" target="PhTHbGMLeDzIONKb90QM-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="528" y="250" />
+              <mxPoint x="528" y="276" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-9" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Ultrasonic sensor&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="576" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-12" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-11" target="PhTHbGMLeDzIONKb90QM-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="250" />
+              <mxPoint x="330" y="276" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-11" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Ultrasonic sensor&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.667;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=34;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-13" target="PhTHbGMLeDzIONKb90QM-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="432" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-13" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;ESP32 c3 &lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="404" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-14" target="PhTHbGMLeDzIONKb90QM-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-14" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;MPU6050 sensor&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="576" y="504" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-18" target="PhTHbGMLeDzIONKb90QM-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-18" target="PhTHbGMLeDzIONKb90QM-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-18" target="PhTHbGMLeDzIONKb90QM-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-18" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;KB2040&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="276" y="404" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-20" value="&lt;div&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;DC Motor&lt;/font&gt;&lt;/div&gt;&lt;br&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;(Drive)&lt;/font&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="192" y="504" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="468" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-26" value="&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Servo motor&lt;/font&gt;&lt;/div&gt;&lt;br&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;(steering)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="504" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-28" target="PhTHbGMLeDzIONKb90QM-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-28" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;Front TOF&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="PhTHbGMLeDzIONKb90QM-31" target="PhTHbGMLeDzIONKb90QM-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="PhTHbGMLeDzIONKb90QM-31" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;Back TOF&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="576" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
