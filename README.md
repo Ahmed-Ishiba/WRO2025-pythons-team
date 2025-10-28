@@ -38,23 +38,23 @@ Me and my colleagues started participating in robotics competition all the way b
   ### Our mission:
 Our main mission for participating in robotics competitions in general is to advance our careers, gain experience and meet like-minded people, however we specifically liked WRO because it rewards open-source work which helps us see other teams and how they tackle certain problems.
 ## System Design:
-
-  ### Robot architecture
+  ### Robot architecture:  
+  
+  
   ### design philosophy
   ### System diagram
   ### Bill Of Materials
 ## Hardware:
----
   ### Mechanical:
 
   ### Electrical:
 
 ## Software:
----
+
   ### Brief overview:
   ### Block diagram:
 ## Modeling and simulation:
----
+IN PROGRESS
 
 ## Testing and calibration:
 
