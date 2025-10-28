@@ -38,12 +38,45 @@ Me and my colleagues started participating in robotics competition all the way b
   ### Our mission:
 Our main mission for participating in robotics competitions in general is to advance our careers, gain experience and meet like-minded people, however we specifically liked WRO because it rewards open-source work which helps us see other teams and how they tackle certain problems.
 ## System Design:
-  ### Robot architecture:  
+  ### Robot architecture:   
+The main input sources are the camera, ultrasonic sensors to measure distance from walls, Time Of Flight sensors to measure distance from obstacles and parking lot walls, MPU6050 sensor to measure orientation angle for corner rotation and to ensure parallel parking.  
+Then the raspberry pi processes these input data and outputs character to KB2040 to control servo and DC motors
+
+  ### design philosophy:
+  When designing our robot we always made sure that our design follows a modular design that is easy to copmrehend and troubleshoot, which helps us in improving on it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
+  ### System diagram:  
+  <img width="517" height="465" alt="system_architecture drawio-removebg-preview" src="https://github.com/user-attachments/assets/2ea9ec49-b1f6-410a-9a8c-96cfd25bd892" />  
   
+This diagram shows the main components of the robot and how they communicate.  
+- The Raspberry Pi 5 acts as the central controller, running the main software and decision-making algorithms.  
+- It communicates with ESP32 microcontroller and KB2040 via UART.  
+- The ESP32 handles all real-time tasks such as controlling the servo and DC motors through PWM signals.  
+-  All controllers share a common power source with independent voltage regulation for stability.
+
+<br>  
+
+  ### Bill Of Materials:   
   
-  ### design philosophy
-  ### System diagram
-  ### Bill Of Materials
+| Component Name | Number of Items | Price (EGP) | Price (USD) |
+|----------------|-----------------|--------------|--------------|
+| Google Coral Accelerator | x1 | 6,250.00 | 125.00 |
+| ESP32 Supermini | x1 | 350.00 | 7.00 |
+| KB2040 | x1 | 425.00 | 8.50 |
+| Raspberry Pi 5 | x1 | 4,000.00 | 80.00 |
+| IMU MPU6050 | x1 | 125.00 | 2.50 |
+| Step Down Converter 12V→5V | x1 | 450.00 | 9.00 |
+| Wheels | x2 | 473.00 | 9.45 |
+| Motor | x1 | 350.00 | 7.00 |
+| Servo (180°) | x1 | 150.00 | 3.00 |
+| Arducam | x1 | 3,000.00 | 60.00 |
+| Step Down Converter 12V→3.3V | x2 | 35.00 | 0.70 |
+| 12V Battery | x1 | 450.00 | 9.00 |
+| Ultrasonic Sensor | x1 | 45.00 | 0.90 |
+| Motor Driver IC | x1 | 100.00 | 2.00 |
+| Big Ball Bearings | x2 | 100.00 | 2.00 |
+| Small Ball Bearings | x2 | 50.00 | 1.00 |
+| PCB Fabrication | x1 | 1,250.00 | 25.00 |
+| **Total** | — | **17,186.50** | **768.55** |
 ## Hardware:
   ### Mechanical:
 
