@@ -44,12 +44,12 @@ Then the raspberry pi processes these input data and outputs character to KB2040
   ### design philosophy:
   When designing our robot we always made sure that our design follows a modular design that is easy to copmrehend and troubleshoot, which helps us in improving on it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
   ### System diagram:  
-  <img width="517" height="465" alt="system_architecture drawio-removebg-preview" src="https://github.com/user-attachments/assets/2ea9ec49-b1f6-410a-9a8c-96cfd25bd892" />  
-  
+  <img width="517" height="465" alt="system_diagram drawio" src="https://github.com/user-attachments/assets/b5c61035-a9ca-40de-a049-db8e5f727b87" />
+
 This diagram shows the main components of the robot and how they communicate.  
 - The Raspberry Pi 5 acts as the central controller, running the main software and decision-making algorithms.  
 - It communicates with ESP32 microcontroller and KB2040 via UART.  
-- The ESP32 handles all real-time tasks such as controlling the servo and DC motors through PWM signals.  
+- The KB2040 handles all real-time tasks such as controlling the servo and DC motors through PWM signals.  
 -  All controllers share a common power source with independent voltage regulation for stability.
 
 <br>  
@@ -101,8 +101,22 @@ This approach helped us further reduce the robot’s size by eliminating the nee
 
 
 ## Software:
+In this section I will also only provide overview on code and thought process since line-by-line documentation can be found in the Software directory.  
 
   ### Brief overview:
+  For our software and programming I divided it into 3 sections: 
+  - Wall tracking
+  -  Obstacle Avoidance
+  -  Parking
+1. Wall Tracking:
+   For wall tracking I calculated wall area diffrence that camera sees and wall diffrence measured from ultrasonic sensors then used sensor fusion to get accurate data that    I then passed to a PID controller to center the robot all processed on the raspberry pi 5.
+   
+2. Obstacle Avoidance:
+    For obstacle avoidance we used a custom trained yolov8 AI model with 500+ pictures to make sure that the robot detects the traffic signs regardless of environment.
+    This approach is better than the traditional image processing approach that relies on the environment since HSV values change according to reflected light.
+    Our AI model runs on the google edge TPU to achieve high FPS and faster detection.
+3. Parking:
+   IN PROGRESS  
   ### Block diagram:
 ## Modeling and simulation:
 IN PROGRESS
