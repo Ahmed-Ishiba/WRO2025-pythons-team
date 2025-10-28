@@ -122,5 +122,20 @@ In this section I will also only provide overview on code and thought process si
 IN PROGRESS
 
 ## Testing and calibration:
+After completing the robot assembly, we performed a series of tests to ensure that every subsystem was functioning correctly.
+We ran the test scripts located in the [Software Testing Directory](/Software/System%20Testing/)
 
-## Future improvments
+- Communication between the microcontrollers and sensors
+- Sensor testing and calibration
+- Motor operation and direction control
+- Servo steering response
+- Camera functionality and data transmission
+
+## Future improvments:
+In the future if we participate again and for other teams looking at this repo here are some improvments I wished to implement:
+- Use better sensor fusion algorithms
+- Better weight distribution in the robot design
+- Put built-in voltage sensor
+- add cloud-based data logging for better debugging
+- create a GUI that combine camera frame and terminal output (looks cool no other reason)
+
