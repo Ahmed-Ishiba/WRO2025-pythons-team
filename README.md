@@ -44,7 +44,7 @@ Then the raspberry pi processes these input data and outputs character to KB2040
   ### design philosophy:
   When designing our robot we always made sure that our design follows a modular design that is easy to copmrehend and troubleshoot, which helps us in improving on it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
   ### System diagram:  
-  <img width="517" height="465" alt="system_diagram drawio" src="https://github.com/user-attachments/assets/b5c61035-a9ca-40de-a049-db8e5f727b87" />
+<img width="517" height="465" alt="system_diagram_main drawio" src="https://github.com/user-attachments/assets/bc966d70-36db-492f-ba29-251a000bfefb" />
 
 This diagram shows the main components of the robot and how they communicate.  
 - The Raspberry Pi 5 acts as the central controller, running the main software and decision-making algorithms.  
