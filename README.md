@@ -1,7 +1,6 @@
 
 # WRO2025-pythons-team
-
-- Documentation of our self-driving car for the WRO 2025 future engineers category, our team members: Ahmed Ibrahim Elsayed responsible for software part of robot, Eyad Ahmed Nazary responsible for electrical part of robot, Nour Eldin Raoof responsible for mechanical design and fabrication of robot and our coach and mentor Omar Khaled
+Documentation of our self-driving car for the WRO 2025 future engineers category, our team members: Ahmed Ibrahim Elsayed responsible for software part of robot, Eyad Ahmed Nazary responsible for electrical part of robot, Nour Eldin Raoof responsible for mechanical design and fabrication of robot and our coach and mentor Omar Khaled
 ## Content:
 1. [Project overview](#project-overview).  
     1.1. [What is WRO?](#what-is-wro)  
@@ -78,9 +77,28 @@ This diagram shows the main components of the robot and how they communicate.
 | PCB Fabrication | x1 | 1,250.00 | 25.00 |
 | **Total** | — | **17,186.50** | **768.55** |
 ## Hardware:
+This section includes brief overview of hardware section of robot (Mechanical and electrical).  
+Each section is explained in detail in it's respective folder  
+SLDPRT, DXF and board files are also included in their respective folder to download, print and get down to business.  
   ### Mechanical:
+<img width="563" height="443" alt="photo_solid" src="https://github.com/user-attachments/assets/527acc7b-9cac-4c63-a7b2-7b6c962012c3" />  
 
-  ### Electrical:
+During the design phase, we chose to stick with a simple structure to save time on fabrication, especially after making a bold decision that I’ll discuss in the next section. Our main focus however was to maximize the steering angles achievable from the servo, which is vital in turning since we can turn faster and closer to the blocks than other cars.   
+
+We also chose big wheels to maximize distance crossed during same revolution this also helps in faster steering.  
+
+
+  ### Electrical:  
+<img width="623" height="400" alt="3d_pcb" src="https://github.com/user-attachments/assets/8a41eeca-e9c2-4021-8c3e-2eb19d8ccdcb" />  
+
+You might’ve noticed that our PCB has a rather unusual shape — that’s because it is the shape of our mechanical design!  
+This brings us to the bold decision I mentioned earlier: we chose to make the base itself the main circuit.  
+This approach not only improves stability and reduces overall size by eliminating separate circuit boards, but also makes assembly incredibly straightforward — every component has its exact place.  
+
+But wait — there’s another bold decision! Did you notice there’s no motor driver on our robot?  
+That’s right — we built our own motor driver using a dedicated IC and a decoupling capacitor.  
+This approach helped us further reduce the robot’s size by eliminating the need for bulky modules like the L298N or Cytron drivers.
+
 
 ## Software:
 
