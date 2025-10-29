@@ -1,5 +1,26 @@
+<p align=center>
+<img width="964" height="259" alt="mainThepythons-removebg-preview" src="https://github.com/user-attachments/assets/ca71d4ee-6c42-4b0f-98d4-a79505348210" />
 
-# WRO2025-pythons-team
+</p>
+<p align="center">
+  <a href="https://the-pythons.com" target="_blank">
+    <img src="https://img.shields.io/badge/Visit-Website-blue?logo=google-chrome&logoColor=white" alt="Website Badge"/>
+  </a>
+  <a href="mailto:ahmedishiba9@gmail.com">
+          <img src="https://img.shields.io/badge/Contact-Ahmed_Ishiba-red?logo=gmail&logoColor=white" />
+  </a>
+    <a href="https://github.com/ahmed-ishiba">
+    <img src="https://img.shields.io/badge/Ahmed%20Elsayed-Contributor-blue?logo=github" alt="Ahmed Elsayed"/>
+  </a>
+  <a href="https://github.com/Eyad005">
+    <img src="https://img.shields.io/badge/Eyad%20Nazary-Contributor-green?logo=github" alt="Eyad Nazary"/>
+  </a>
+    <a href="https://www.youtube.com/@thepythonseg">
+    <img src="https://img.shields.io/badge/Youtube-The%20Pythons%20Team-red?logo=Youtube" alt="Youtube Channel"/>
+
+  </a>
+</p>  
+
 Documentation of our self-driving car for the WRO 2025 future engineers category, our team members: Ahmed Ibrahim Elsayed responsible for software part of robot, Eyad Ahmed Nazary responsible for electrical part of robot, Nour Eldin Raoof responsible for mechanical design and fabrication of robot and our coach and mentor Omar Khaled
 ## Content:
 1. [Project overview](#project-overview).  
