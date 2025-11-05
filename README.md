@@ -38,7 +38,11 @@ Documentation of our self-driving car for the WRO 2025 future engineers category
 4. [Software](#software)  
     4.1. [Brief overview](#brief-overview)  
     4.2. [Block diagram](#block-diagram)  
-5. [Modeling & simulation](#modeling-and-simulation)
+5. [Modeling & simulation](#modeling-and-simulation)  
+    5.1. [Project Overview](#project-overview)  
+    5.2. [Problem context and strategy](#problem-context-and-strategy)  
+    5.3. [Modeling and simulation](#modeling-and-simulation)  
+    5.4. [Testing and verification](#testing-and-verification)  
 6. [Testing & calibration](#testing-and-calibration)
 7. [Future improvments](#future-improvments)
 
@@ -140,8 +144,86 @@ In this section I will also only provide overview on code and thought process si
    IN PROGRESS  
   ### Block diagram:
 ## Modeling and simulation:
-IN PROGRESS
+  ### Project Overview:  
+  Here I will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modeling and simulation directory](/Modeling%20and%Simulation/)  
+  </br>
+  When designing our wall centering algorithm we used the simplest algorithm possible due to how hard it is to tune advanced control algorithms like PID or applying filters however when MathWorks created this award I had no reason not to use it and apply any algorithm I wanted especially after giving us license for the newest Matlab version for free.  
+  </br>
+  now I can apply all the algorithms I want and all my crazy ideas, here is what I did:  
+  When centering in the previous algorithm I only used the area of the 2 walls seen by my arducam however it was really noisy and changes too fast which is not that good for wall centering, however when I tried to use an ultrasonic sensor the distance readings where precise but the rate at which it changes was really slow  
+  </br>
+  so now I have 2 methods to measure the same thing each have their pros and cons so I got the idea to fuse them both with a simple weighted sum formula so I can have control over it and ensure it's smoothness  
+  
+  After I get the result of the formula which measures the deviation of the robot from the center of the lane I then pass it into a PID controller then I take the output of the controller and pass it into a map function that I implemented myself in order to convert the range of the PID output into a range that my servo accepts(from 0 to 180)  
+  
+  ### Problem context and strategy:  
+  the main challanges that I faced were:  
+  - Creating the weighted sum formula and tuning the weights
+  - Tuning the PID
+  - Making sure the map function works correctly
+  - and a problem that I realised later is that I don't know how to test this!
+  - I also discovered when I was talking to my friend that I can simulate our electrical system on simscape electrical so I had to check it out
+  As for our strategy:
+  1. I started by writing psuedo code for my algorithm and knew it's buidling blocks
+  2. For simplicity I divided this algorithm into 2 parts: the complementery filter, the PID controller, my map function and creating a statflow diagram then tackeled each in this order
+  3. I then decided what Mathworks products help with this which were: Simuluink for creating a subsystem for my filter and used it's wide variety of blocks to save time on implementing a PID algorithm from scratch, Matlab for writing code of my mapping function, simscape electrical for simulating my electrical system and stateflow for creating a diagram of my algorithm using states  
+  </br>
+  Using Matlab, simulink, simscape and state flow saved so much time and were extremely helpful
 
+  - using Matlab for writing the mapping code was extremely easy especially with matlab's easy syntax
+  - simulink was by far the best tool I used because not only can I tune algorithms and filters without needing any hardware I can just tune it with only clicking one button! not to mention the clear modular look that helped me troubleshoot where exactly my model went wrong, the graphing that helps me understand the behaviour of my robot and derive meaningful data from it and realizing logical problems in minutes that would've taken days to realize
+  - stateflow was really helpful in dividing the algorithm like a flow chart but stateflow is much more brief, helped me in verifying my code since the code is divided into states just like stateflow and it also helped me in verfiying condition if changing states and overall is a vital tool
+  - for simscape electric I unfortunately discovered it a little late but after using it I realized how increadible it is for simulating a circuit and finding out stall current, max current draw and I used it to correct our choice of battery since we kept having power issues but using simscape we corrected a mistake that would've cost us the competition, this is also a tool that we would definately use for future robotics projects
+
+
+  ### Modeling and simulation:  
+  now for the main model as I said everything is explained in detail in the modeling directory.  
+  <img width="2743" height="665" alt="simulink_model" src="https://github.com/user-attachments/assets/ba717568-8d41-4b9a-b2dc-d03ecc2fd308" />  
+
+  This is the main model and as you can see I take input from 2 sources that somewhat measure the same thing then pass it into my complementery filter that outputs an estimated deviation from the center of the lane and passes it to a PID controller and finally map it to servo range using the map function and send it to the servo  
+  
+ this algorithm is from my perspective as simple as it gets while at the same time maintaining it's simplicity for fast and easy troubleshooting (not that there is room for error after tuning it)  
+
+ as for the complementery filter I created a sub-system for it which is by far the most useful feature in simulink since the logic for the filter is very confusing when put with the main system, here is the diagram for the compelemetery filter (explained in detail in the modeling directory):  
+ 
+  <img width="2215" height="1020" alt="filter_subsystem" src="https://github.com/user-attachments/assets/ba2a756d-4e1d-4925-9a7c-14c39b6509c1" />  
+
+  Also here is the stateflow diagram for you to understand how my code is divided  
+
+  <img width="2647" height="993" alt="stateflow_chart" src="https://github.com/user-attachments/assets/09cf25d1-6080-4537-be46-1af9da436630" />  
+
+Here is the mapping function I implemented which is just a formula nothing too complicated  
+
+<img width="1333" height="792" alt="mapping_function" src="https://github.com/user-attachments/assets/b2c33d0e-713c-4348-82fd-19b691f7c8e8" />
+
+
+  ### Testing and verification:    
+  For testing this model I had to think and come up with ideas I then came to the conclusion to use the simulink function generator  
+  
+  I used a sin wave to simulate changing input and I of course got an output in shape of sin wave which is both scientifically and physically correct since this model is considered a linear time-invariant system so only the amplitude changes and physically correct since when error increases from the setpoint(the rise of the sine wave) the output should also increase to compensate and correct this error  
+
+  <img width="2758" height="942" alt="model_using_sine" src="https://github.com/user-attachments/assets/3a6dbd48-d4e8-44ee-a9e9-65a878e14a8a" />  
+
+
+  <img width="1642" height="1536" alt="complementary_filter_and_pid" src="https://github.com/user-attachments/assets/e523abe5-24c2-4811-b2c5-64aa3196de27" />  
+
+this is the graph of the compelmentery filter and the PID controller and above it is the model but I used the sin generator as the input.
+
+<img width="2379" height="1706" alt="Screenshot 2025-11-05 002140" src="https://github.com/user-attachments/assets/ef41a2ba-69e5-4b26-b495-79c965bd8cca" />  
+
+This is the output(servo degree) resulting from the model and as you can see it changes reasonably with the changing the input both following the same graph  
+
+</br>
+
+I also used step function generator to simulate specific cases that I encountered when working on my robot and coincitentally found them
+
+<img width="2729" height="744" alt="model_using_step" src="https://github.com/user-attachments/assets/08b10d94-d160-4325-ad85-de4bb901372a" />  
+
+<img width="2880" height="1920" alt="step_output" src="https://github.com/user-attachments/assets/3533cf66-be00-4951-a87c-76d260adf74b" />
+
+this is the output (servo degree) resulting from my model and above it is the model using the step function generator
+
+  
 ## Testing and calibration:
 After completing the robot assembly, we performed a series of tests to ensure that every subsystem was functioning correctly.
 We ran the test scripts located in the [Software Testing Directory](/Software/System%20Testing/)
