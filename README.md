@@ -106,9 +106,10 @@ This section includes brief overview of hardware section of robot (Mechanical an
 Each section is explained in detail in it's respective folder  
 SLDPRT, DXF and board files are also included in their respective folder to download, print and get down to business.  
   ### Mechanical:
-<img width="563" height="443" alt="photo_solid" src="https://github.com/user-attachments/assets/527acc7b-9cac-4c63-a7b2-7b6c962012c3" />  
+<img width="749" height="579" alt="image-Photoroom (1)" src="https://github.com/user-attachments/assets/f3fdd860-52b2-48c4-8d72-d5893f1ccad6" />
 
 During the design phase, we chose to stick with a simple structure to save time on fabrication, especially after making a bold decision that I’ll discuss in the next section. Our main focus however was to maximize the steering angles achievable from the servo, which is vital in turning since we can turn faster and closer to the blocks than other cars.   
+
 
 We also chose big wheels to maximize distance crossed during same revolution this also helps in faster steering.  
 
