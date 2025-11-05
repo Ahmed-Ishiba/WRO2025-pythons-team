@@ -145,7 +145,7 @@ In this section I will also only provide overview on code and thought process si
   ### Block diagram:
 ## Modeling and simulation:
   ### Model Overview:  
-  Here I will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modeling and simulation directory](/Modeling%20and%simulation/)  
+  Here I will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modeling and simulation directory](/Modeling%20and%20simulation/)  
   </br>
   When designing our wall centering algorithm we used the simplest algorithm possible due to how hard it is to tune advanced control algorithms like PID or applying filters however when MathWorks created this award I had no reason not to use it and apply any algorithm I wanted especially after giving us license for the newest Matlab version for free.  
   </br>
