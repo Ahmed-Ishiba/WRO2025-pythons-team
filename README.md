@@ -39,7 +39,7 @@ Documentation of our self-driving car for the WRO 2025 future engineers category
     4.1. [Brief overview](#brief-overview)  
     4.2. [Block diagram](#block-diagram)  
 5. [Modeling & simulation](#modeling-and-simulation)  
-    5.1. [Project Overview](#project-overview)  
+    5.1. [Model Overview](#model-overview)  
     5.2. [Problem context and strategy](#problem-context-and-strategy)  
     5.3. [Modeling and simulation](#modeling-and-simulation)  
     5.4. [Testing and verification](#testing-and-verification)  
@@ -144,7 +144,7 @@ In this section I will also only provide overview on code and thought process si
    IN PROGRESS  
   ### Block diagram:
 ## Modeling and simulation:
-  ### Project Overview:  
+  ### Model Overview:  
   Here I will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modeling and simulation directory](/Modeling%20and%Simulation/)  
   </br>
   When designing our wall centering algorithm we used the simplest algorithm possible due to how hard it is to tune advanced control algorithms like PID or applying filters however when MathWorks created this award I had no reason not to use it and apply any algorithm I wanted especially after giving us license for the newest Matlab version for free.  
