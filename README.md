@@ -38,7 +38,7 @@ Documentation of our self-driving car for the WRO 2025 future engineers category
 4. [Software](#software)  
     4.1. [Brief overview](#brief-overview)  
     4.2. [Block diagram](#block-diagram)  
-5. [Modeling & simulation](#modeling-and-simulation)  
+5. [Matlab Modeling & simulation](#modeling-and-simulation)  
     5.1. [Model Overview](#model-overview)  
     5.2. [Problem context and strategy](#problem-context-and-strategy)  
     5.3. [Modeling and simulation](#modeling-and-simulation)  
