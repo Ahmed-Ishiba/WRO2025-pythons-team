@@ -23,29 +23,33 @@
 
 Documentation of our self-driving car for the WRO 2025 future engineers category, our team members: Ahmed Ibrahim Elsayed responsible for software part of robot, Eyad Ahmed Nazary responsible for electrical part of robot, Nour Eldin Raoof responsible for mechanical design and fabrication of robot and our coach and mentor Omar Khaled
 ## Content:
-1. [Project overview](#project-overview).  
-    1.1. [What is WRO?](#what-is-wro)  
-    1.2. [Team Introduction](#team-introduction)  
-    1.3. [Our Mission](#our-mission)   
+1. [Project overview](#project-overview)  
+    1. [What is WRO?](#what-is-wro)  
+    2. [Team Introduction](#team-introduction)  
+    3. [Our Mission](#our-mission)  
 2. [System Design](#system-design)  
-    2.1. [Robot architecture](#robot-architecture)  
-    2.2. [Our design philosophy](#design-philosophy)  
-    2.3. [System diagram](#system-diagram)  
-    2.4. [Bill Of Materials](#bill-of-materials)  
-3. [Hardware](#hardware)    
-    3.1. [Mechanical](#mechanical)  
-    3.2. [Electrical](#electrical)  
+    1. [Robot architecture](#robot-architecture)  
+    2. [Our design philosophy](#design-philosophy)  
+    3. [System diagram](#system-diagram)  
+    4. [Bill Of Materials](#bill-of-materials)  
+3. [Hardware](#hardware)  
+    1. [Mechanical](#mechanical)  
+    2. [Electrical](#electrical)  
 4. [Software](#software)  
-    4.1. [Brief overview](#brief-overview)  
-    4.2. [Block diagram](#block-diagram)  
-5. [Matlab Modeling & simulation](#modeling-and-simulation)  
-    5.1. [Model Overview](#model-overview)  
-    5.2. [Problem context and strategy](#problem-context-and-strategy)  
-    5.3. [Modeling and simulation](#modeling-and-simulation)  
-    5.4. [Testing and verification](#testing-and-verification)  
-6. [Testing & calibration](#testing-and-calibration)
-7. [Future improvments](#future-improvments)
-
+    1. [Brief overview](#brief-overview)  
+    2. [Block diagram](#block-diagram)  
+5. [Matlab Modeling & Simulation](#modeling-and-simulation)
+    1. [Model Overview](#model-overview)
+    2. [Problem context and strategy](#problem-context-and-strategy)
+    3. [Modeling and simulation](#modeling-and-simulation)
+        1. [Simulink logical model](#simulink-logical-model)
+        2. [Complementary filter sub-system](#complementary-filter-sub-system)
+        3. [State-flow diagram](#state-flow-diagram)
+        4. [Matlab function](#matlab-function)
+        5. [Simscape Electrical model](#simscape-electrical-model)  
+    4. [Testing and verification](#testing-and-verification)  
+7. [Testing & calibration](#testing-and-calibration)  
+8. [Future improvments](#future-improvments)   
 ## Project overview:
 
   ### What is WRO:
@@ -148,7 +152,7 @@ In this section I will also only provide overview on code and thought process si
   ### Model Overview:  
   Here I will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modeling and simulation directory](/Modeling%20and%20simulation/)  
   </br>
-  When designing our wall centering algorithm we used the simplest algorithm possible due to how hard it is to tune advanced control algorithms like PID or applying filters however when MathWorks created this award I had no reason not to use it and apply any algorithm I wanted especially after giving us license for the newest Matlab version for free.  
+  When designing our wall centering algorithm I used the simplest algorithm possible due to how hard it is to tune advanced control algorithms like PID or applying filters, however when MathWorks created this award I had no reason not to use it and apply any algorithm I wanted especially after giving us license for the newest Matlab version for free.  
   </br>
   now I can apply all the algorithms I want and all my crazy ideas, here is what I did:  
   When centering in the previous algorithm I only used the area of the 2 walls seen by my arducam however it was really noisy and changes too fast which is not that good for wall centering, however when I tried to use an ultrasonic sensor the distance readings where precise but the rate at which it changes was really slow  
@@ -164,41 +168,57 @@ In this section I will also only provide overview on code and thought process si
   - Making sure the map function works correctly
   - and a problem that I realised later is that I don't know how to test this!
   - I also discovered when I was talking to my friend that I can simulate our electrical system on simscape electrical so I had to check it out
-  As for our strategy:
+
+  As for our strategy:   
   1. I started by writing psuedo code for my algorithm and knew it's buidling blocks
   2. For simplicity I divided this algorithm into 2 parts: the complementery filter, the PID controller, my map function and creating a statflow diagram then tackeled each in this order
   3. I then decided what Mathworks products help with this which were: Simuluink for creating a subsystem for my filter and used it's wide variety of blocks to save time on implementing a PID algorithm from scratch, Matlab for writing code of my mapping function, simscape electrical for simulating my electrical system and stateflow for creating a diagram of my algorithm using states  
-  </br>
-  Using Matlab, simulink, simscape and state flow saved so much time and were extremely helpful
+  </br>   
+  Using Matlab, simulink, simscape and state flow saved so much time and were extremely helpful   
 
   - using Matlab for writing the mapping code was extremely easy especially with matlab's easy syntax
   - simulink was by far the best tool I used because not only can I tune algorithms and filters without needing any hardware I can just tune it with only clicking one button! not to mention the clear modular look that helped me troubleshoot where exactly my model went wrong, the graphing that helps me understand the behaviour of my robot and derive meaningful data from it and realizing logical problems in minutes that would've taken days to realize
   - stateflow was really helpful in dividing the algorithm like a flow chart but stateflow is much more brief, helped me in verifying my code since the code is divided into states just like stateflow and it also helped me in verfiying condition if changing states and overall is a vital tool
-  - for simscape electric I unfortunately discovered it a little late but after using it I realized how increadible it is for simulating a circuit and finding out stall current, max current draw and I used it to correct our choice of battery since we kept having power issues but using simscape we corrected a mistake that would've cost us the competition, this is also a tool that we would definately use for future robotics projects
+  - simscape electric was used for simulating our circuit and finding out stall current, max current draw and I used it to correct our choice of battery since we kept having power issues but using simscape we corrected a mistake that would've cost us the competition, this is also a tool that we would definately use for future robotics projects
 
 
   ### Modeling and simulation:  
-  now for the main model as I said everything is explained in detail in the modeling directory.  
+  #### Simulink logical model:  
+  
+  now for the main model as I said everything is explained in detail in the [Modeling directory.](/Modeling%20and%20simulation/)  
   <img width="2743" height="665" alt="simulink_model" src="https://github.com/user-attachments/assets/ba717568-8d41-4b9a-b2dc-d03ecc2fd308" />  
 
   This is the main model and as you can see I take input from 2 sources that somewhat measure the same thing then pass it into my complementery filter that outputs an estimated deviation from the center of the lane and passes it to a PID controller and finally map it to servo range using the map function and send it to the servo  
   
  this algorithm is from my perspective as simple as it gets while at the same time maintaining it's simplicity for fast and easy troubleshooting (not that there is room for error after tuning it)  
 
- as for the complementery filter I created a sub-system for it which is by far the most useful feature in simulink since the logic for the filter is very confusing when put with the main system, here is the diagram for the compelemetery filter (explained in detail in the modeling directory):  
+#### Complementary filter sub-system:  
+
+ For the complementery filter I created a sub-system for it which is by far the most useful feature in simulink since the logic for the filter is very confusing when put with the main system, here is the diagram for the compelemetery filter (explained in detail in the modeling directory):  
  
   <img width="2215" height="1020" alt="filter_subsystem" src="https://github.com/user-attachments/assets/ba2a756d-4e1d-4925-9a7c-14c39b6509c1" />  
 
-  Also here is the stateflow diagram for you to understand how my code is divided  
+#### State-flow diagram:   
 
-  <img width="2647" height="993" alt="stateflow_chart" src="https://github.com/user-attachments/assets/09cf25d1-6080-4537-be46-1af9da436630" />  
+  Here is the stateflow diagram for you to understand how my code is divided  
 
-Here is the mapping function I implemented which is just a formula nothing too complicated  
+  <img width="2647" height="993" alt="stateflow_chart" src="https://github.com/user-attachments/assets/09cf25d1-6080-4537-be46-1af9da436630" />     
+
+  
+#### Matlab function:   
+
+Here is the mapping function I implemented which is just a formula nothing too complicated   
 
 <img width="1333" height="792" alt="mapping_function" src="https://github.com/user-attachments/assets/b2c33d0e-713c-4348-82fd-19b691f7c8e8" />
 
+#### Simscape electrical model:   
+We used simscape electrical to measure our maximum ampere consumption, required voltage and suitable battery capacity, here is a photo of our model:   
 
-  ### Testing and verification:    
+<img width="2793" height="775" alt="model" src="https://github.com/user-attachments/assets/c85061a7-b311-4031-9667-db40fa0159a7" />
+
+  ### Testing and verification:   
+  #### Testing Logical model:   
+  
   For testing this model I had to think and come up with ideas I then came to the conclusion to use the simulink function generator  
   
   I used a sin wave to simulate changing input and I of course got an output in shape of sin wave which is both scientifically and physically correct since this model is considered a linear time-invariant system so only the amplitude changes and physically correct since when error increases from the setpoint(the rise of the sine wave) the output should also increase to compensate and correct this error  
@@ -222,9 +242,18 @@ I also used step function generator to simulate specific cases that I encountere
 
 <img width="2880" height="1920" alt="step_output" src="https://github.com/user-attachments/assets/3533cf66-be00-4951-a87c-76d260adf74b" />
 
-this is the output (servo degree) resulting from my model and above it is the model using the step function generator
+this is the output (servo degree) resulting from my model and above it is the model using the step function generator  
 
-  
+</br>
+
+#### Testing the electrical model:  
+
+As for testing our electrical model it was as easy as hitting run then seeing the output voltage and current intensity on our scope  
+
+  <img width="2878" height="1720" alt="voltage_Intensity_graph" src="https://github.com/user-attachments/assets/991cf0b1-0833-4dbf-8810-251972cb08f0" />   
+
+ As you can see we got a max current draw of 7 Amps and voltage of approximately 11.1 volts so we made our decision for battery type by dividing available battery capacities on the internet by the max current and getting how long it will last.  
+
 ## Testing and calibration:
 After completing the robot assembly, we performed a series of tests to ensure that every subsystem was functioning correctly.
 We ran the test scripts located in the [Software Testing Directory](/Software/System%20Testing/)
