@@ -104,7 +104,7 @@ This diagram shows the main components of the robot and how they communicate.
 | Big Ball Bearings | x2 | 100.00 | 2.00 |
 | Small Ball Bearings | x2 | 50.00 | 1.00 |
 | PCB Fabrication | x1 | 1,250.00 | 25.00 |
-| **Total** | — | **17,186.50** | **768.55** |
+| **Total** | — | **17,186.50** | **363.41** |
 ## Hardware:
 This section includes brief overview of hardware section of robot (Mechanical and electrical).  
 Each section is explained in detail in it's respective folder  
