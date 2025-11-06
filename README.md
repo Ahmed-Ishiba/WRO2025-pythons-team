@@ -47,7 +47,7 @@ Our team members:
     2. [Electrical](#electrical)  
 4. [Software](#software)  
     1. [Brief Overview](#brief-overview)  
-    2. [Block Diagram](#block-diagram)  
+    2. [Code flow chart](#flow-chart)  
 5. [MATLAB Modeling & Simulation](#modelling-and-simulation)  
     1. [Model Overview](#model-overview)  
     2. [Problem Context and Strategy](#problem-context-and-strategy)  
@@ -169,7 +169,11 @@ In this section I will also only provide overview on code and thought process si
     Our AI model runs on the google edge TPU to achieve high FPS and faster detection.
 3. Parking:
    IN PROGRESS  
-  ### Block diagram:
+  ### Flow Chart:   
+
+<img width="759" height="1131" alt="flow_chart drawio" src="https://github.com/user-attachments/assets/67a9270c-c505-440a-b1ef-274a783db9c3" />
+
+  
 ## Modelling and simulation:
   ### Model Overview:  
   Here we will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modelling and simulation directory](/Modeling%20and%20simulation/)  
