@@ -58,8 +58,9 @@ Our team members:
         4. [MATLAB Function](#matlab-function)
         5. [Simscape Electrical Model](#simscape-electrical-model)  
     4. [Testing and Verification](#testing-and-verification)  
-6. [Testing & Calibration](#testing-and-calibration)  
-7. [Future Improvements](#future-improvements)  
+6. [Testing & Calibration](#testing-and-calibration)
+7. [Reproduce Our Robot: Step-by-Step Guide](#reproduce-our-robot)
+8. [Future Improvements](#future-improvements)  
 
 ## Project Overview
 
@@ -282,6 +283,18 @@ We ran the test scripts located in the [Software Testing Directory](/Software/Sy
 - Motor operation and direction control
 - Servo steering response
 - Camera functionality and data transmission
+
+## Reproduce Our Robot:  
+1. First start with the main body of robot (after buying components of course)
+2. Fabricate the pcb since this is the body or if you want to wire everything and don't need a pcb just download our solidworks files and cnc cut it
+3. assemble the robot by connecting everything to the pcb like labeled in our fusion360 file or connect using jumper wires
+4. setup the raspberry pi and enable i2c and uart
+5. clone this repo on raspberry pi
+6. test the system using the files in the [Software testing directory](/Software/System%20Testing/)
+7. After making sure every component in the system is running normally, run the main code
+8. Now you have a working WRO Future engineers self-driving car!
+
+
 
 ## Future improvements:
 In the future if we participate again and for other teams looking at this repo here are some improvements I wished to implement:
