@@ -60,7 +60,8 @@ Our team members:
     4. [Testing and Verification](#testing-and-verification)  
 6. [Testing & Calibration](#testing-and-calibration)
 7. [Reproduce Our Robot: Step-by-Step Guide](#reproduce-our-robot)
-8. [Future Improvements](#future-improvements)  
+8. [Future Improvements](#future-improvements)
+9. [Team photo](#team-photo)  
 
 ## Project Overview
 
@@ -304,3 +305,7 @@ In the future if we participate again and for other teams looking at this repo h
 - Put built-in voltage sensor
 - add cloud-based data logging for better debugging
 - create a GUI that combine camera frame and terminal output (looks cool no other reason)
+## Team photo:  
+
+<img width="1283" height="1274" alt="Screenshot 2025-11-07 003350" src="https://github.com/user-attachments/assets/3143a9e5-1793-44a2-9231-20ba725bd0d0" />
+
