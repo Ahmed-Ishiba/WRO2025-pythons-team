@@ -1,3 +1,4 @@
+
 <p align="center">
 <img width="964" height="259" alt="mainThepythons-removebg-preview" src="https://github.com/user-attachments/assets/ca71d4ee-6c42-4b0f-98d4-a79505348210" />
 </p>
@@ -47,10 +48,10 @@ Our team members:
 4. [Software](#software)  
     1. [Brief Overview](#brief-overview)  
     2. [Block Diagram](#block-diagram)  
-5. [MATLAB Modeling & Simulation](#modeling-and-simulation)
-    1. [Model Overview](#model-overview)
-    2. [Problem Context and Strategy](#problem-context-and-strategy)
-    3. [Modeling and Simulation](#modeling-and-simulation)
+5. [MATLAB Modeling & Simulation](#modelling-and-simulation)  
+    1. [Model Overview](#model-overview)  
+    2. [Problem Context and Strategy](#problem-context-and-strategy)  
+    3. [Modeling and Simulation](#modelling-and-simulation)
         1. [Simulink Logical Model](#simulink-logical-model)
         2. [Complementary Filter Subsystem](#complementary-filter-sub-system)
         3. [Stateflow Diagram](#state-flow-diagram)
@@ -58,7 +59,7 @@ Our team members:
         5. [Simscape Electrical Model](#simscape-electrical-model)  
     4. [Testing and Verification](#testing-and-verification)  
 6. [Testing & Calibration](#testing-and-calibration)  
-7. [Future Improvements](#future-improvments)  
+7. [Future Improvements](#future-improvements)  
 
 ## Project Overview
 
@@ -90,7 +91,7 @@ The main input sources are the camera, ultrasonic sensors to measure distance fr
 Then the raspberry pi processes these input data and outputs character to KB2040 to control servo and DC motors
 
   ### design philosophy:
-  When designing our robot we always made sure that our design follows a modular design that is easy to copmrehend and troubleshoot, which helps us in improving on it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
+  When designing our robot we always made sure that our design follows a modular design that is easy to comprehend and troubleshoot, which helps us in improving on it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
   ### System diagram:  
 <img width="517" height="465" alt="system_diagram_main drawio" src="https://github.com/user-attachments/assets/bc966d70-36db-492f-ba29-251a000bfefb" />
 
@@ -158,7 +159,7 @@ In this section I will also only provide overview on code and thought process si
   -  Obstacle Avoidance
   -  Parking
 1. Wall Tracking:
-   For wall tracking I calculated wall area diffrence that camera sees and wall diffrence measured from ultrasonic sensors then used sensor fusion to get accurate data that    I then passed to a PID controller to center the robot all processed on the raspberry pi 5.
+   For wall tracking I calculated wall area difference that camera sees and wall difference measured from ultrasonic sensors then used sensor fusion to get accurate data that    I then passed to a PID controller to center the robot all processed on the raspberry pi 5.
    
 2. Obstacle Avoidance:
     For obstacle avoidance we used a custom trained yolov8 AI model with 500+ pictures to make sure that the robot detects the traffic signs regardless of environment.
@@ -167,11 +168,11 @@ In this section I will also only provide overview on code and thought process si
 3. Parking:
    IN PROGRESS  
   ### Block diagram:
-## Modeling and simulation:
+## Modelling and simulation:
   ### Model Overview:  
-  Here we will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modeling and simulation directory](/Modeling%20and%20simulation/)  
+  Here we will not go into much detail, you can find a detailed explanation, model files and statflow files in the [Modelling and simulation directory](/Modeling%20and%20simulation/)  
   </br>
-  When designing our wall centering algorithm we used the simplest algorithm possible due to how hard it is to tune advanced control algorithms like PID or applying filters, however when MathWorks created this award we had no reason not to use it and apply any algorithm we wanted especially after giving us license for the newest Matlab version for free.  
+  When designing our wall centering algorithm we used the simplest algorithm possible due to how hard it is to tune advanced control algorithms like PID or applying filters, however when MathWorks created this award we had no reason not to use it and apply any algorithm we wanted especially after giving us license for the newest MATLAB version for free.  
   </br>
   now we can apply all the algorithms we want and all my crazy ideas, here is what we did:  
   When centering in the previous algorithm we only used the area of the 2 walls seen by our arducam however it was really noisy and changes too fast which is not that good for wall centering, however when we tried to use an ultrasonic sensor the distance readings where precise but the rate at which it changes was really slow  
@@ -181,7 +182,7 @@ In this section I will also only provide overview on code and thought process si
   After we get the result of the formula which measures the deviation of the robot from the center of the lane we then pass it into a PID controller then we take the output of the controller and pass it into a map function that we implemented myself in order to convert the range of the PID output into a range that my servo accepts(from 0 to 180)  
   
   ### Problem context and strategy:  
-  the main challanges that we faced were:  
+  the main challenges that we faced were:  
   - Creating the weighted sum formula and tuning the weights
   - Tuning the PID
   - Making sure the map function works correctly
@@ -189,22 +190,22 @@ In this section I will also only provide overview on code and thought process si
   - simulating our electrical system on simscape electrical  
 
   As for our strategy:   
-  1. we started by writing psuedo code for my algorithm and knew it's buidling blocks
-  2. For simplicity we divided this algorithm into 5 parts: the complementery filter, the PID controller, the map function, creating a statflow diagram and simulating the circuit we then tackeled each in this order
-  3. we then decided what Mathworks products help with this which were: Simuluink for creating a subsystem for my filter and use it's wide variety of blocks to save time on implementing a PID algorithm from scratch, Matlab for writing code of our mapping function, simscape electrical for simulating my electrical system and stateflow for creating a diagram of my algorithm using states  
+  1. we started by writing pseudo code for my algorithm and knew it's building blocks
+  2. For simplicity we divided this algorithm into 5 parts: the complementary filter, the PID controller, the map function, creating a stateflow diagram and simulating the circuit we then tackled each in this order
+  3. we then decided what MathWorks products help with this which were: Simulink for creating a subsystem for my filter and use it's wide variety of blocks to save time on implementing a PID algorithm from scratch, MATLAB for writing code of our mapping function, simscape electrical for simulating my electrical system and stateflow for creating a diagram of my algorithm using states  
   </br>   
-  Using Matlab, simulink, simscape and state flow saved so much time and were extremely helpful   
+  Using MATLAB, Simulink, simscape and state flow saved so much time and were extremely helpful   
 
-  - using Matlab for writing the mapping code was extremely easy especially with matlab's easy syntax
-  - simulink was by far the best tool we used because not only can we tune algorithms and filters without needing any hardware we can just tune it with only clicking one button! not to mention the clear modular look that helped me troubleshoot where exactly our model went wrong, the graphing that helps us understand the behaviour of our robot and derive meaningful data from it and realizing logical problems in minutes that would've taken days to realize
-  - stateflow was really helpful in dividing the algorithm like a flow chart but stateflow is much more brief, helped us in verifying my code since the code is divided into states just like stateflow and it also helped us in verfiying condition if changing states and overall is a vital tool
-  - simscape electric was used for simulating our circuit and finding out stall current, max current draw and we used it to correct our choice of battery since we kept having power issues but using simscape we corrected a mistake that would've cost us the competition, this is also a tool that we would definately use for future robotics projects
+  - using MATLAB for writing the mapping code was extremely easy especially with MATLAB's easy syntax
+  - Simulink was by far the best tool we used because not only can we tune algorithms and filters without needing any hardware we can just tune it with only clicking one button! not to mention the clear modular look that helped me troubleshoot where exactly our model went wrong, the graphing that helps us understand the behaviour of our robot and derive meaningful data from it and realizing logical problems in minutes that would've taken days to realize
+  - stateflow was really helpful in dividing the algorithm like a flow chart but stateflow is much more brief, helped us in verifying my code since the code is divided into states just like stateflow and it also helped us in verifying condition if changing states and overall is a vital tool
+  - simscape electric was used for simulating our circuit and finding out stall current, max current draw and we used it to correct our choice of battery since we kept having power issues but using simscape we corrected a mistake that would've cost us the competition, this is also a tool that we would definitely use for future robotics projects
 
 
-  ### Modeling and simulation:  
+  ### Modelling and simulation:  
   #### Simulink logical model:  
   
-  now for the main model as I said everything is explained in detail in the [Modeling directory.](/Modeling%20and%20simulation/)  
+  now for the main model as I said everything is explained in detail in the [Modelling directory.](/Modeling%20and%20simulation/)  
   <img width="2743" height="665" alt="simulink_model" src="https://github.com/user-attachments/assets/ba717568-8d41-4b9a-b2dc-d03ecc2fd308" />  
 
   This is the main model and as you can see we take input from 2 sources that somewhat measure the same thing then pass it into our complementary filter that outputs an estimated deviation from the center of the lane and passes it to a PID controller and finally map it to servo range using the map function and send it to the servo  
@@ -213,7 +214,7 @@ In this section I will also only provide overview on code and thought process si
 
 #### Complementary filter sub-system:  
 
- For the complementery filter we created a sub-system for it which is by far the most useful feature in simulink since the logic for the filter is very confusing when put with the main system, here is the diagram for the compelemetery filter (explained in detail in the modeling directory):  
+ For the complementary filter we created a sub-system for it which is by far the most useful feature in simulink since the logic for the filter is very confusing when put with the main system, here is the diagram for the complementary filter (explained in detail in the modelling directory):  
  
   <img width="2215" height="1020" alt="filter_subsystem" src="https://github.com/user-attachments/assets/ba2a756d-4e1d-4925-9a7c-14c39b6509c1" />  
 
@@ -224,9 +225,9 @@ In this section I will also only provide overview on code and thought process si
   <img width="2647" height="993" alt="stateflow_chart" src="https://github.com/user-attachments/assets/09cf25d1-6080-4537-be46-1af9da436630" />     
 
   
-#### Matlab function:   
+#### MATLAB function:   
 
-Here is the mapping function we implemented which is just a mathmatical formula nothing too complicated   
+Here is the mapping function we implemented which is just a mathematical formula nothing too complicated   
 
 <img width="1333" height="792" alt="mapping_function" src="https://github.com/user-attachments/assets/b2c33d0e-713c-4348-82fd-19b691f7c8e8" />
 
@@ -247,14 +248,14 @@ We used simscape electrical to measure our maximum ampere consumption, required 
 
   <img width="1642" height="1536" alt="complementary_filter_and_pid" src="https://github.com/user-attachments/assets/e523abe5-24c2-4811-b2c5-64aa3196de27" />  
 
-this is the graph of the compelmentery filter and the PID controller and above it is the model but we used the sin generator as the input.
+this is the graph of the complementary filter and the PID controller and above it is the model but we used the sin generator as the input.
 
 <img width="2379" height="1706" alt="Screenshot 2025-11-05 002140" src="https://github.com/user-attachments/assets/ef41a2ba-69e5-4b26-b495-79c965bd8cca" />  
 
 This is the output(servo degree) resulting from the model and as you can see it changes reasonably with the changing the input both following the same graph  
 
 </br>
-We also used step function generator to simulate specific cases that I encountered when working on my robot and coincitentally found them
+We also used step function generator to simulate specific cases that I encountered when working on my robot and coincidentally found them
 
 <img width="2729" height="744" alt="model_using_step" src="https://github.com/user-attachments/assets/08b10d94-d160-4325-ad85-de4bb901372a" />  
 
@@ -282,12 +283,11 @@ We ran the test scripts located in the [Software Testing Directory](/Software/Sy
 - Servo steering response
 - Camera functionality and data transmission
 
-## Future improvments:
-In the future if we participate again and for other teams looking at this repo here are some improvments I wished to implement:
+## Future improvements:
+In the future if we participate again and for other teams looking at this repo here are some improvements I wished to implement:
 - Use better sensor fusion algorithms
-- Create a simulink environment specifically for this competition like the one in robotics playground
+- Create a Simulink environment specifically for this competition like the one in robotics playground
 - Better weight distribution in the robot design
 - Put built-in voltage sensor
 - add cloud-based data logging for better debugging
 - create a GUI that combine camera frame and terminal output (looks cool no other reason)
-
