@@ -133,6 +133,8 @@ This section includes brief overview of hardware section of robot (Mechanical an
 Each section is explained in detail in it's respective folder  
 SLDPRT, DXF and board files are also included in their respective folder to download, print and get down to business.  
   ### Mechanical:
+  [Mechanical directory](/Mechanical/)     
+  
 <img width="749" height="579" alt="Robot 3d Design" src="https://github.com/user-attachments/assets/f3fdd860-52b2-48c4-8d72-d5893f1ccad6" />
 
 During the design phase, we chose to stick with a simple structure to save time on fabrication, especially after making a bold decision that I’ll discuss in the next section. Our main focus however was to maximize the steering angles achievable from the servo by creating a fully free movement system, which is vital in turning since we can turn faster and closer to the blocks than other cars. In order to follow the competition's guidelines of using only _**one**_ motor to provide the forward movement to the whole robot we created a gear system to transfer the motor's movement to the rear wheels, also creating a versatile semi movable component mounting system -as seen in the camera mounting- to eliminate the need for refabrication which in turn cuts down the time needed for assembling the robot. 
@@ -142,6 +144,7 @@ We also chose big wheels to maximize distance crossed during same revolution thi
 
 
   ### Electrical:  
+  [Electrical directory](/Electrical/)
 <img width="623" height="400" alt="3d_pcb" src="https://github.com/user-attachments/assets/8a41eeca-e9c2-4021-8c3e-2eb19d8ccdcb" />  
 
 You might’ve noticed that our PCB has a rather unusual shape — that’s because it is the shape of our mechanical design!  
@@ -154,12 +157,13 @@ This approach helped us further reduce the robot’s size by eliminating the nee
 
 
 ## Software:
-In this section I will also only provide overview on code and thought process since line-by-line documentation can be found in the Software directory.  
+In this section I will also only provide overview on code and thought process since line-by-line documentation can be found in the [Software directory](/Software/).  
 
   ### Brief overview:
   For our software and programming I divided it into 3 sections: 
   - Wall tracking
   -  Obstacle Avoidance
+  -  Corner detection
   -  Parking
 1. Wall Tracking:
    For wall tracking I calculated wall area difference that camera sees and wall difference measured from ultrasonic sensors then used sensor fusion to get accurate data that    I then passed to a PID controller to center the robot all processed on the raspberry pi 5.
@@ -175,8 +179,10 @@ In this section I will also only provide overview on code and thought process si
 
 
 
-
-3. Parking:
+3. Corner detection:
+   For corner detection we used simple image processing algorithms that detect blue and orange strips using the HSV values of each color to apply masks
+   
+4. Parking:
    IN PROGRESS  
   ### Flow Chart:   
 
