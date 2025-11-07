@@ -169,17 +169,14 @@ In this section I will also only provide overview on code and thought process si
     This approach is better than the traditional image processing approach that relies on the environment since HSV values change according to reflected light.
     Our AI model runs on the google edge TPU to achieve high FPS and faster detection.
 
-  <img width="517" height="465" alt="Screenshot 2025-11-07 025213" src="https://github.com/user-attachments/assets/a0b6fed2-e068-4e5d-92f4-ba139c8c52a1" />
+  <img width="517" height="465" alt="Screenshot 2025-11-07 025213" src="https://github.com/user-attachments/assets/a0b6fed2-e068-4e5d-92f4-ba139c8c52a1" />   
 
-   
-
-
-https://github.com/user-attachments/assets/0746ed6e-e767-420a-9b96-121c0c189ac0
+  https://github.com/user-attachments/assets/0746ed6e-e767-420a-9b96-121c0c189ac0
 
 
 
 
-4. Parking:
+3. Parking:
    IN PROGRESS  
   ### Flow Chart:   
 
