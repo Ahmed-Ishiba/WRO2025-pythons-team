@@ -80,7 +80,7 @@ Our team consists of 3 members and a coach:
 3. **Nour Eldin Raoof:** Mechanical lead — 3rd year, Faculty of Science, Alexandria University  
 4. **Omar Khaled:** Team coach — AASTMT
 
-We have been participating in robotics competitions since **2018**, and we joined The Pythons team in **2019**.
+We have been participating in robotics competitions since **2016**, and we joined The Pythons team in **2017**.
 
 ### Our Mission
 
@@ -93,7 +93,7 @@ The main input sources are the camera, ultrasonic sensors to measure distance fr
 Then the raspberry pi processes these input data and outputs character to KB2040 to control servo and DC motors
 
   ### design philosophy:
-  When designing our robot we always made sure that our design follows a modular design that is easy to comprehend and troubleshoot, which helps us in improving on it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
+  When designing our robot we always made sure that our design follows a modular design that is easy to comprehend and troubleshoot, which helps us in improving it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
   ### System diagram:  
 <img width="517" height="465" alt="system_diagram_main drawio" src="https://github.com/user-attachments/assets/bc966d70-36db-492f-ba29-251a000bfefb" />
 
@@ -115,17 +115,18 @@ This diagram shows the main components of the robot and how they communicate.
 | Raspberry Pi 5 | x1 | 4,000.00 | 80.00 |
 | IMU MPU6050 | x1 | 125.00 | 2.50 |
 | Step Down Converter 12V→5V | x1 | 450.00 | 9.00 |
-| Wheels | x2 | 473.00 | 9.45 |
+| Wheels | x4 | 473.00 | 9.45 |
 | Motor | x1 | 350.00 | 7.00 |
 | Servo (180°) | x1 | 150.00 | 3.00 |
 | Arducam | x1 | 3,000.00 | 60.00 |
 | Step Down Converter 12V→3.3V | x2 | 35.00 | 0.70 |
 | 12V Battery | x1 | 450.00 | 9.00 |
-| Ultrasonic Sensor | x1 | 45.00 | 0.90 |
+| Ultrasonic Sensor | x2 | 45.00 | 0.90 |
 | Motor Driver IC | x1 | 100.00 | 2.00 |
 | Big Ball Bearings | x2 | 100.00 | 2.00 |
 | Small Ball Bearings | x2 | 50.00 | 1.00 |
 | PCB Fabrication | x1 | 1,250.00 | 25.00 |
+|Time Of Flight sensor | x2 | _ | _ |
 | **Total** | — | **17,186.50** | **363.41** |
 ## Hardware:
 This section includes brief overview of hardware section of robot (Mechanical and electrical).  
@@ -167,7 +168,18 @@ In this section I will also only provide overview on code and thought process si
     For obstacle avoidance we used a custom trained yolov8 AI model with 500+ pictures to make sure that the robot detects the traffic signs regardless of environment.
     This approach is better than the traditional image processing approach that relies on the environment since HSV values change according to reflected light.
     Our AI model runs on the google edge TPU to achieve high FPS and faster detection.
-3. Parking:
+
+  <img width="517" height="465" alt="Screenshot 2025-11-07 025213" src="https://github.com/user-attachments/assets/a0b6fed2-e068-4e5d-92f4-ba139c8c52a1" />
+
+   
+
+
+https://github.com/user-attachments/assets/0746ed6e-e767-420a-9b96-121c0c189ac0
+
+
+
+
+4. Parking:
    IN PROGRESS  
   ### Flow Chart:   
 
@@ -204,7 +216,7 @@ In this section I will also only provide overview on code and thought process si
 
   - using MATLAB for writing the mapping code was extremely easy especially with MATLAB's easy syntax
   - Simulink was by far the best tool we used because not only can we tune algorithms and filters without needing any hardware we can just tune it with only clicking one button! not to mention the clear modular look that helped me troubleshoot where exactly our model went wrong, the graphing that helps us understand the behaviour of our robot and derive meaningful data from it and realizing logical problems in minutes that would've taken days to realize
-  - stateflow was really helpful in dividing the algorithm like a flow chart but stateflow is much more brief, helped us in verifying my code since the code is divided into states just like stateflow and it also helped us in verifying condition if changing states and overall is a vital tool
+  - stateflow was really helpful in dividing the algorithm like a flow chart but much briefly, helped us in verifying my code since the code is divided into states just like stateflow and it also helped us in verifying condition if changing states and overall is a vital tool
   - simscape electric was used for simulating our circuit and finding out stall current, max current draw and we used it to correct our choice of battery since we kept having power issues but using simscape we corrected a mistake that would've cost us the competition, this is also a tool that we would definitely use for future robotics projects
 
 
@@ -235,7 +247,7 @@ In this section I will also only provide overview on code and thought process si
 
 Here is the mapping function we implemented which is just a mathematical formula nothing too complicated   
 
-<img width="1333" height="792" alt="mapping_function" src="https://github.com/user-attachments/assets/b2c33d0e-713c-4348-82fd-19b691f7c8e8" />
+<img width="517" height="465" alt="mapping_function" src="https://github.com/user-attachments/assets/b2c33d0e-713c-4348-82fd-19b691f7c8e8" />
 
 #### Simscape electrical model:   
 We used simscape electrical to measure our maximum ampere consumption, required voltage and suitable battery capacity, here is a photo of our model:   
@@ -252,11 +264,11 @@ We used simscape electrical to measure our maximum ampere consumption, required 
   <img width="2758" height="942" alt="model_using_sine" src="https://github.com/user-attachments/assets/3a6dbd48-d4e8-44ee-a9e9-65a878e14a8a" />  
 
 
-  <img width="1642" height="1536" alt="complementary_filter_and_pid" src="https://github.com/user-attachments/assets/e523abe5-24c2-4811-b2c5-64aa3196de27" />  
+  <img width="517" height="465" alt="complementary_filter_and_pid" src="https://github.com/user-attachments/assets/e523abe5-24c2-4811-b2c5-64aa3196de27" />  
 
 this is the graph of the complementary filter and the PID controller and above it is the model but we used the sin generator as the input.
 
-<img width="2379" height="1706" alt="Screenshot 2025-11-05 002140" src="https://github.com/user-attachments/assets/ef41a2ba-69e5-4b26-b495-79c965bd8cca" />  
+<img width="517" height="465" alt="Screenshot 2025-11-05 002140" src="https://github.com/user-attachments/assets/ef41a2ba-69e5-4b26-b495-79c965bd8cca" />  
 
 This is the output(servo degree) resulting from the model and as you can see it changes reasonably with the changing the input both following the same graph  
 
@@ -311,5 +323,5 @@ In the future if we participate again and for other teams looking at this repo h
 - create a GUI that combine camera frame and terminal output (looks cool no other reason)
 ## Team photo:  
 
-<img width="1283" height="1274" alt="Screenshot 2025-11-07 003350" src="https://github.com/user-attachments/assets/3143a9e5-1793-44a2-9231-20ba725bd0d0" />
+<img width="640" height="676" alt="Screenshot 2025-11-07 003350" src="https://github.com/user-attachments/assets/3143a9e5-1793-44a2-9231-20ba725bd0d0" />
 
