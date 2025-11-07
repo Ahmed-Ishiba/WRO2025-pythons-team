@@ -92,7 +92,7 @@ We specifically enjoy WRO because it **encourages open-source work**, allowing t
 The main input sources are the camera, ultrasonic sensors to measure distance from walls, Time Of Flight sensors to measure distance from obstacles and parking lot walls, MPU6050 sensor to measure orientation angle for corner rotation and to ensure parallel parking.  
 Then the raspberry pi processes these input data and outputs character to KB2040 to control servo and DC motors
 
-  ### design philosophy:
+  ### Design philosophy:
   When designing our robot we always made sure that our design follows a modular design that is easy to comprehend and troubleshoot, which helps us in improving it with ease, this approach also minimizes time delays that may happen due to fabrication and unfortunate mishaps, this also helps anyone without experience in robotics and future teams to pick up where we left off.
   ### System diagram:  
 <img width="517" height="465" alt="system_diagram_main drawio" src="https://github.com/user-attachments/assets/bc966d70-36db-492f-ba29-251a000bfefb" />
