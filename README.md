@@ -284,7 +284,7 @@ this is the output (servo degree) resulting from our model and above it is the m
 
 As for testing our electrical model it was as easy as hitting run then seeing the output voltage and current intensity on our scope  
 
-  <img width="2878" height="1720" alt="voltage_Intensity_graph" src="https://github.com/user-attachments/assets/991cf0b1-0833-4dbf-8810-251972cb08f0" />   
+<img width="2878" height="1725" alt="voltage_intensiy_graph" src="https://github.com/user-attachments/assets/26f03082-b799-4309-a26d-d71ce44e4313" />  
 
  As you can see we got a max current draw of 7 Amps and voltage of approximately 11.1 volts so we made our decision for battery type by dividing available battery capacities on the internet by the max current and getting how long it will last.  
 
