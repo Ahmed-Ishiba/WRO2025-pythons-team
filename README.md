@@ -299,6 +299,7 @@ We ran the test scripts located in the [Software Testing Directory](/Software/Sy
 - Camera functionality and data transmission
 
 ## Reproduce Our Robot:  
+A [Raspberry pi setup script](/raspberrypi_setup.sh) is included that setups all required packages 
 1. First start with the main body of robot (after buying components of course)
 2. Fabricate the pcb since this is the body or if you want to wire everything and don't need a pcb just download our solidworks files and cnc cut it
 3. assemble the robot by connecting everything to the pcb like labeled in our fusion360 file or connect using jumper wires
